@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       return await User.scope('currentUser').findByPk(user.id);
     };
-    
+
     static associate(models) {
       // define association here
     }
@@ -56,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
         len: [4,30],
         // isEmail: false
         isNotEmail(val){
-          if (Validator.isEmail(value)){
+          if (Validator.isEmail(val)){
             throw new Error('Cannot be email');
           }
         }
