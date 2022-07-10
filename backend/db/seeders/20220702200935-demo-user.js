@@ -2,7 +2,7 @@
 const bcrypt = require('bcryptjs');
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  up: async (queryInterface, Sequelize) => {
    return queryInterface.bulkInsert('Users', [
     {
       email: 'demo@user.io',
@@ -12,7 +12,7 @@ module.exports = {
     {
       email: 'user1@user.io',
       username: 'FakeUser1',
-      hashedPassword: bcrypt.hashSync('password3')
+      hashedPassword: bcrypt.hashSync('password2')
     },
     {
       email: 'user2@user.io',
@@ -22,7 +22,7 @@ module.exports = {
    ], {})
   },
 
-  async down (queryInterface, Sequelize) {
+  down: async (queryInterface, Sequelize) => {
     /**
      * Add commands to revert seed here.
      *

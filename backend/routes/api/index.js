@@ -13,13 +13,13 @@ router.get('/restore-user', (req, res) => {
     return res.json(req.user);
 })
 
-router.get('/set-token-cookie', async (req, res) => {
+router.get('/set-token-cookie', async (_req, res) => {
     const user = await User.findOne({
         where: {
             username: 'Demo-lition'
         }
     });
-    setTokenCookie(req, user);
+    setTokenCookie(res, user);
     return res.json({ user });
 });
 
